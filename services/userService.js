@@ -72,6 +72,8 @@ export const register = async(req, res) => {
 
 
 export const login = async (req, res) => {
+    
+
     try {
         const user = await users.findAll({
             where: {
@@ -93,7 +95,7 @@ export const login = async (req, res) => {
        
       
         const accessToken = jwt.sign({userId,username,password,name,address,phone_number, email, image}, process.env.ACCESS_TOKEN_SECRET, {
-            expiresIn: '5m'
+            expiresIn: '1d'
         });
         const refreshToken = jwt.sign({userId,username,password,name,address,phone_number, email, image}, process.env.REFRESH_TOKEN_SECRET, {
             expiresIn: '1d'
@@ -110,8 +112,8 @@ export const login = async (req, res) => {
     } catch (error) {
         res.status(404).json({error: "Username doesn't exist"});
     };
-};
 
+}
 
 
 

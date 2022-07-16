@@ -35,7 +35,7 @@ app.use (productRouter)
 
   try {
      db.authenticate()
-     app.listen(8000, () => console.log("Server running..."))
+     app.listen(8200, () => console.log("Server running..."))
     
   } catch (error) {
     console.log(error);
