@@ -33,6 +33,9 @@ const products = db.define('products', {
     image:{
         type: DataTypes.TEXT
     },
+    description: {
+        type: DataTypes.TEXT
+    },
 
 
 }, {freezeTableName: true, createdAt: false, updatedAt: false});

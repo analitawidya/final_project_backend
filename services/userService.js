@@ -23,9 +23,7 @@ export const getUser = async (req, res) => {
         const user = await users.findOne({ 
             where: {
                 username: req.header.username
-            },
-            
-            attributes : ['username','password','name','email', 'phone_number', 'address', 'image']
+            }
         });
         res.json(user);
     } catch (error) {
@@ -72,8 +70,6 @@ export const register = async(req, res) => {
 
 
 export const login = async (req, res) => {
-    
-
     try {
         const user = await users.findAll({
             where: {
@@ -112,8 +108,8 @@ export const login = async (req, res) => {
     } catch (error) {
         res.status(404).json({error: "Username doesn't exist"});
     };
+};
 
-}
 
 
 

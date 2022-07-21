@@ -46,7 +46,9 @@ export const inputProduct = async (req,res) => {
                 bedrooms: req.body.bedrooms,
                 bathrooms: req.body.bathrooms,
                 price: req.body.price,
-                image: req.body.image
+                image: req.body.image,
+                description: req.body.description
+
             });
           
         res.send("Input success");
@@ -68,7 +70,7 @@ export const getProducts = async (req,res) => {
         });
         const product = await products.findAll({
             where: {
-                user_id : users.id
+                user_id : user.id
             }
         });
         res.send(product);
@@ -110,7 +112,8 @@ export const updateProduct = async (req,res) => {
             bedrooms: req.body.bedrooms,
             bathrooms: req.body.bathrooms,
             price: req.body.price,
-            image: req.body.image
+            image: req.body.image,
+            description: req.body.description
         },{
              where: {
                  id: req.body.id
