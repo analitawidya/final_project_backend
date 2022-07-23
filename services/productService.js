@@ -120,7 +120,7 @@ export const updateProduct = async (req,res) => {
              }
             });
     
-        res.send("Product updated");
+        res.json({ success: "Updated" });
         
    } catch (error) {
     return res.status(404).send("Product not found")
